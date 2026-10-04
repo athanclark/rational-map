@@ -41,5 +41,10 @@ or webkit. Missing browsers, failed launches, assertions, and timeouts fail the 
 RATIONAL_BROWSER_PATHS is an optional local executable override; CI uses
 Playwright's own version-matched downloads.
 
-Workflow syntax and non-browser checks have been validated locally. Hosted runner
-execution and browser-engine results require the first push to GitHub.
+The first [GitHub-hosted run](https://github.com/athanclark/rational-map/actions/runs/37240950582)
+passed every job, including Node 20/22/24, package installation, and Chromium,
+Firefox, and WebKit. Subsequent pushes and pull requests run the same workflow.
+
+Cross-backend checks live in the independent rational-conformance project. Its CI
+checks this repository's upstream default branch alongside sqlite-rational and
+pgmp, and can select explicit refs without adding sibling dependencies here.
