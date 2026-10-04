@@ -1,0 +1,23 @@
+{
+  "name": "rational-ordered-map",
+  "version": "0.1.0",
+  "description": "Exact arbitrary-precision rational arithmetic and an augmented persistent ordered map",
+  "type": "module",
+  "license": "MIT",
+  "files": ["dist", "README.md", "LICENSE", "CI.md"],
+  "exports": {
+    ".": {"types": "./dist/index.d.ts", "import": "./dist/index.js"},
+    "./rational": {"types": "./dist/rational.d.ts", "import": "./dist/rational.js"},
+    "./browser": {"types": "./dist/index.d.ts", "import": "./dist/browser.js"}
+  },
+  "engines": {"node": ">=20"},
+  "scripts": {
+    "build": "tsc && node scripts/build-browser.mjs",
+    "test": "npm run build && node --test test/*.test.mjs",
+    "test:browser": "node test/browser.mjs",
+    "test:package": "npm run build && node scripts/test-package.mjs",
+    "prepack": "npm run build"
+  },
+  "dependencies": {"fraction.js": "5.3.4"},
+  "devDependencies": {"typescript": "5.9.3", "esbuild": "0.25.12", "playwright": "1.58.2"}
+}
